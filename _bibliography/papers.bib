@@ -56,7 +56,7 @@
   google_scholar_id={qyhmnyLat1gC},
   video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
   additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  selected={true}
+  selected={false}
 }
 
 @article{einstein1905molekularkinetischen,
@@ -86,28 +86,23 @@
   year={1905}
 }
 
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+@article{LIU2024102291,
+title = {Towards geodesic ridge curve for region-wise linear representation of geodesic distance field},
+journal = {Computer Aided Geometric Design},
+volume = {111},
+pages = {102291},
+preview={1-s2.0-S0167839624000256-gr011_lrg.jpg},
+year = {2024},
+issn = {0167-8396},
+bibtex_show={true},
+url={https://www.sciencedirect.com/science/article/pii/S0167839624000256?dgcid=rss_sd_all},
+doi = {https://doi.org/10.1016/j.cagd.2024.102291},
+url = {https://www.sciencedirect.com/science/article/pii/S0167839624000256},
+author = {Wei Liu* and {<b>}Pengfei Wang*{</b>} and Shuangmin Chen and Shiqing Xin and Changhe Tu and Ying He and Wenping Wang},
+keywords = {Digital geometry processing, Geodesic distance field, Ridge point, Geodesic isoline},
+abstract = {This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist. An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.},
+html={https://www.sciencedirect.com/science/article/pii/S0167839624000256?dgcid=rss_sd_all},
+dimensions={true},
+selected={true}
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
-}
