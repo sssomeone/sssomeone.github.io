@@ -81,7 +81,7 @@
         <div class="ring-container">
             <div class="ring">
                 <div class="hollow-ring">
-                    <img class="profile-image" src="assets/img/DSC02418.jpg" alt="Pengfei Wang" />
+                    <img class="profile-image" src="assets/img/avatar.jpg" alt="Pengfei Wang" />
                      
                         <div class="emoji-indicator">
                             🍀 <span class="hover-text"> four-leaf clover </span> 
@@ -96,7 +96,7 @@
             
              <a class="social-icon" href="https://github.com/sssomeone" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github" style="font-size: 35px; color: #171515"></i></a> 
             
-             <a class="social-icon" href="assets/doc/" target="_blank" rel="noopener" title="Resume"><i class="fas fa-file-alt" style="font-size: 35px; color: #bd5d38"></i></a> 
+             <a class="social-icon" href="assets/doc/Resume_KhangNguyen.pdf" target="_blank" rel="noopener" title="Resume"><i class="fas fa-file-alt" style="font-size: 35px; color: #bd5d38"></i></a> 
         </div>
         <div class="social-icons">
             
@@ -196,16 +196,14 @@
             
                 <button class="filter-button" data-filter="voronoi">voronoi</button>
             
-                <button class="filter-button" data-filter="geodesic">geodesic</button>
-            
         </div>
         <p></p>
         <div id="projects" class="isotope">
             
-                <div class="project" data-filter="geodesic">
+                <div class="project" data-filter="voronoi">
     <div class="row mb-4">
         <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/cutlocus.png" />
+            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/cutlocus.jpg" />
         </div>
         <div class="col-sm-8">
             
@@ -224,11 +222,11 @@
             
             <br />
             <u><b><i>Abstract</i></b>:</u> 
-            This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist.
-            <span class="collapse" id="geodesic">
-                An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.
+            Geodesic cut locus computation on mesh.
+            <span class="collapse" id="voronoi">
+                This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist. An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.
             </span> 
-            <span> <a href="#geodesic" data-toggle="collapse" onclick="toggleText(this)" id="link-geodesic">... See More</a></span>
+            <span> <a href="#voronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-voronoi">... See More</a></span>
         </div>                       
     </div>
 </div>
@@ -237,7 +235,7 @@
                 <div class="project" data-filter="voronoi">
     <div class="row mb-4">
         <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/surfaceVoronoi.png" />
+            <img width="100%" height="auto" class="w-full rounded-lg" src="https://irc.cs.sdu.edu.cn/~shiqing/Images/2022SIGAsiaXin.png" />
         </div>
         <div class="col-sm-8">
             
@@ -256,9 +254,9 @@
             
             <br />
             <u><b><i>Abstract</i></b>:</u> 
-            In this paper, we propose to compute Voronoi diagrams over mesh surfaces driven by an arbitrary geodesic distance solver, assuming that the input is a triangle mesh as well as a collection of sites on the surface. We propose two key techniques to solve this problem. First, as the partition is
+            Generalized voronoi diagram computation on 2-manifold surface.
             <span class="collapse" id="voronoi">
-                determined by minimizing the m distance fields, each of which rooted at a source site,we suggest keeping one or more distance triples, for each triangle, that may help determine the Voronoi bisectors when one uses a mark-and-sweep geodesic algorithm to predict the multi-source distance field. Second, rather than keep the distance itself at a mesh vertex, we use the squared distance to characterize the linear change of distance field restricted in a triangle, which is proved to induce an exact VD when the base surface reduces to a planar triangle mesh.Specially, our algorithm also supports the Euclidean distance, which can handle thin-sheet models (e.g. leaf) and runs fasterthan the traditional restricted Voronoi diagram (RVD) algorithm. It is very extensible to deal with various variants of surface-based Voronoi diagrams including(1) surface-based power diagram, (2) constrained Voronoi diagram with curve-type breaklines,and (3) curve-type generators. We conduct extensive experimental results to validate the ability to approximate the exact VD in different distance-driven scenarios.
+                In this paper, we propose to compute Voronoi diagrams over mesh surfaces driven by an arbitrary geodesic distance solver, assuming that the input is a triangle mesh as well as a collection of sites on the surface. We propose two key techniques to solve this problem. First, as the partition is determined by minimizing the m distance fields, each of which rooted at a source site,we suggest keeping one or more distance triples, for each triangle, that may help determine the Voronoi bisectors when one uses a mark-and-sweep geodesic algorithm to predict the multi-source distance field. Second, rather than keep the distance itself at a mesh vertex, we use the squared distance to characterize the linear change of distance field restricted in a triangle, which is proved to induce an exact VD when the base surface reduces to a planar triangle mesh.Specially, our algorithm also supports the Euclidean distance, which can handle thin-sheet models (e.g. leaf) and runs fasterthan the traditional restricted Voronoi diagram (RVD) algorithm. It is very extensible to deal with various variants of surface-based Voronoi diagrams including(1) surface-based power diagram, (2) constrained Voronoi diagram with curve-type breaklines,and (3) curve-type generators. We conduct extensive experimental results to validate the ability to approximate the exact VD in different distance-driven scenarios.
             </span> 
             <span> <a href="#voronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-voronoi">... See More</a></span>
         </div>                       
