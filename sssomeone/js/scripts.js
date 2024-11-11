@@ -12,17 +12,17 @@ $(window).scroll(function() {
 btn.on('click', function(e) {
     e.preventDefault();
     const speechBalloon = document.querySelector('.speech-balloon');
-    const clickSound = new Audio('assets/sounds/collision_sound.wav');
+    // const clickSound = new Audio('assets/sounds/collision_sound.wav');
     $('html, body').animate({scrollTop:0}, '300');
     speechBalloon.innerText = 'back to top!';
-    clickSound.play();
+    // clickSound.play();
 });
 
 
 // Play pronunciation audio when the emoji is clicked
 document.getElementById('volumeEmoji').addEventListener('click', function() {
-    const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
-    pronunicationAudio.play();
+    // const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
+    // pronunicationAudio.play();
 });
 
 
@@ -67,7 +67,7 @@ function toggleTheme() {
     const bodyEl = document.body;
     const buttonEl = document.querySelector('.toggle-theme-button');
     const speechBalloon = document.querySelector('.speech-balloon');
-    const clickSound = new Audio('assets/sounds/switch_sound.wav');
+    // const clickSound = new Audio('assets/sounds/switch_sound.wav');
 
     if (bodyEl.classList.contains('light-theme')) {
         bodyEl.classList.remove('light-theme');
@@ -76,7 +76,7 @@ function toggleTheme() {
         buttonEl.classList.add('dark-theme');
         buttonEl.innerText = '☀️';
         speechBalloon.innerText = 'lights turned off!';
-        clickSound.play();
+        // clickSound.play();
     } else {
         bodyEl.classList.remove('dark-theme');
         bodyEl.classList.add('light-theme');
@@ -84,7 +84,7 @@ function toggleTheme() {
         buttonEl.classList.add('light-theme');
         buttonEl.innerText = '🌙';
         speechBalloon.innerText = 'lights turned on!';
-        clickSound.play();
+        // clickSound.play();
     }
 }
 
@@ -163,7 +163,7 @@ document.addEventListener(moveEvent, (e) => {
 
 // Capture mouse up (desktop) or touch end (mobile) events
 document.addEventListener(endEvent, (e) => {
-    const clickSound = new Audio('assets/sounds/disappear_sound.wav');
+    // const clickSound = new Audio('assets/sounds/disappear_sound.wav');
 
     if (!isDragging) {
         return;
@@ -177,7 +177,7 @@ document.addEventListener(endEvent, (e) => {
     // Check if icon is near the middle bottom dismissal area
     if (Math.abs(clientX - centerX) < 50 && Math.abs(clientY - centerY) < 100) {
         popupIconContainer.classList.add('hidden');
-        clickSound.play();
+        // clickSound.play();
     }
 
     dismissalArea.style.display = 'none';
@@ -672,9 +672,9 @@ class Particle {
 
 
 // Initialize 101 particles
-for (let i = 0; i < 101; i++) {
-    particles.push(new Particle());
-}
+// for (let i = 0; i < 101; i++) {
+//     particles.push(new Particle());
+// }
 
 
 // Make the particles move

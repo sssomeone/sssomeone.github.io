@@ -207,6 +207,39 @@
         <p></p>
         <div id="projects" class="isotope">
             
+                <div class="project" data-filter="VORONOI">
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/spacevoronoi.png" />
+        </div>
+        <div class="col-sm-8">
+            
+            <b>Towards Voronoi Diagrams of Surface Patches.</b>
+            <br />
+            <i><a href="" target="_blank" rel="noopener"></a></i> 
+            
+            <br />
+            <strong>Pengfei Wang</strong>, Jiantao Song, <a href="https://alan-leo-wong.github.io">Lei Wang</a>, Shiqing Xin, Dong-Ming Yan, Shuangmin Chen, Changhe Tu, Wenping Wang
+            <br />
+             <a href="assets/papers/SpaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a> 
+            
+            
+            
+            
+            
+            
+            <br />
+            <u><b><i>Abstract</i></b>:</u> 
+            Extraction of a high-fidelity 3D medial axis is a crucial operation in CAD. When dealing with a polygonal model as input, ensuring accuracy and tidiness becomes challenging due to discretization errors inherent in the mesh surface. Commonly, existing approaches yield medial-axis surfaces with various artifacts, including zigzag boundaries, bumpy surfaces, unwanted
+            <span class="collapse" id="SpaceVoronoi">
+                spikes, and non-smooth stitching curves. Considering that the surface of a CAD model can be easily decomposed into a collection of surface patches, its 3D medial axis can be extracted by computing the Voronoi diagram of these surface patches, where each surface patch serves as a generator. However, no solver currently exists for accurately computing such an extended Voronoi diagram. Under the assumption that each generator defines a linear distance field over a sufficiently small range, our approach operates by tetrahedralizing the region of interest and computing the medial axis within each tetrahedral element. Just as SurfaceVoronoi computes surface-based Voronoi diagrams by cutting a 3D prism with 3D planes (each plane encodes a linear field in a triangle), the key operation in this paper is to conduct the hyperplane cutting process in 4D, where each hyperplane encodes a linear field in a tetrahedron. In comparison with the state-of-the-art, our algorithm produces better outcomes. Furthermore, it can also be used to compute the offset surface.
+            </span> 
+            <span> <a href="#SpaceVoronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-SpaceVoronoi">... See More</a></span>
+        </div>                       
+    </div>
+</div>
+
+            
                 <div class="project" data-filter="offset">
     <div class="row mb-4">
         <div class="col-sm-4">
