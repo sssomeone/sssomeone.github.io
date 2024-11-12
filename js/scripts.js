@@ -224,8 +224,8 @@ overlaybg.addEventListener('click', function(event) {
 // Play the flipping-card sound when user flips the contact info card
 document.getElementById('front_end_card').addEventListener('click', function() {
     this.classList.toggle('flip');
-    const flipAudio = new Audio('assets/sounds/flipcard_sound.mp3');
-    flipAudio.play();
+    // const flipAudio = new Audio('assets/sounds/flipcard_sound.mp3');
+    // flipAudio.play();
 });
 
 
