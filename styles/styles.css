@@ -1023,3 +1023,28 @@ canvas {
     height: 100%;
     z-index: -1;
 }
+
+
+.abstract-container {
+    position: relative;
+    max-height: 120px; /* 调整这个值来控制abstract的显示高度 */
+    overflow: hidden;
+}
+
+.abstract-content {
+    margin-bottom: 20px; /* 为"See More"按钮留出空间 */
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to left, white 50%, transparent);
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+/* 当展开时取消高度限制 */
+.abstract-container.expanded {
+    max-height: none;
+}

@@ -68,6 +68,7 @@
                 <li><p onclick="scrollToTopDiv('#research')"><span class="emoji">📚</span> <span class="text">publications</span></p></li>
                 <!-- <li><p onclick="scrollToTopDiv('#outreach')"><span class="emoji">🧩</span> <span class="text">outreach</span></p></li> -->
                 <li><p onclick="scrollToTopDiv('#resources')"><span class="emoji">⛏️</span> <span class="text">resources</span></p></li>
+                <li><p onclick="scrollToTopDiv('#education')"><span class="emoji">🎓</span> <span class="text">education</span></p></li>
                 <!-- <li><p onclick="scrollToTopDiv('#gallery')"><span class="emoji">🖼️</span> <span class="text">gallery</span></p></li> -->
             </ul>
         </nav>
@@ -186,15 +187,87 @@
     </div>
 </div>
 
-<!-- Research section -->
+<!-- Education section -->
+<hr />
 
+<div class="row" id="education">
+    <div class="col">
+        <h2 class="mb-5">🎓 Education</h2>
+        <div class="education-timeline">
+            
+                <!-- <div class="education-item mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h3 class="h5 mb-1">Ph.D. in Computer Graphics</h3>
+        <p class="mb-1"><strong>Shandong University</strong></p>
+        <p class="text-muted mb-2">2024 - Present</p>
+        
+          <p class="mb-0">Supervised by <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Prof. Changhe Tu</a> and <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Prof. Shiqing Xin</a>. Research focus on Computer Geometry, including midsurface and generalized voronoi diagram.</p>
+        
+      </div>
+    </div>
+  </div> -->
+
+  <div class="education-item card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-radius: 8px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Ph.D. in Computer Graphics</h3>
+    <p style="color: #666; margin-bottom: 0.25rem;">Shandong University</p>
+    <p style="color: #888; font-size: 0.9rem; margin-bottom: 0.5rem;">2024 - Present</p>
+    
+        <p style="font-size: 0.95rem; line-height: 1.5;">Supervised by <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Prof. Changhe Tu</a> and <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Prof. Shiqing Xin</a>. Research focus on Computer Geometry, including midsurface and generalized voronoi diagram.</p>
+    
+</div>
+            
+                <!-- <div class="education-item mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h3 class="h5 mb-1">Master in Computer Science and Technology</h3>
+        <p class="mb-1"><strong>Shandong University</strong></p>
+        <p class="text-muted mb-2">2021 - 2024</p>
+        
+          <p class="mb-0">Supervised by <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Prof. Shiqing Xin</a>.</p>
+        
+      </div>
+    </div>
+  </div> -->
+
+  <div class="education-item card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-radius: 8px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Master in Computer Science and Technology</h3>
+    <p style="color: #666; margin-bottom: 0.25rem;">Shandong University</p>
+    <p style="color: #888; font-size: 0.9rem; margin-bottom: 0.5rem;">2021 - 2024</p>
+    
+        <p style="font-size: 0.95rem; line-height: 1.5;">Supervised by <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Prof. Shiqing Xin</a>.</p>
+    
+</div>
+            
+                <!-- <div class="education-item mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <div>
+        <h3 class="h5 mb-1">Bachelor in Information Science and Engineering</h3>
+        <p class="mb-1"><strong>Hunan Normal University</strong></p>
+        <p class="text-muted mb-2">2017 - 2021</p>
+        
+      </div>
+    </div>
+  </div> -->
+
+  <div class="education-item card" style="margin-bottom: 1.5rem; padding: 1.5rem; border-radius: 8px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Bachelor in Information Science and Engineering</h3>
+    <p style="color: #666; margin-bottom: 0.25rem;">Hunan Normal University</p>
+    <p style="color: #888; font-size: 0.9rem; margin-bottom: 0.5rem;">2017 - 2021</p>
+    
+</div>
+            
+        </div>
+    </div>
+</div>
+<p><!-- 添加这一行 -->
+<!-- Research section --></p>
 <hr />
 
 <div class="row" id="research">
     <div class="col">
-        <h2 clss="mb-5">📚 publications</h2>
-        <p></p>
-        <div id="filters-project">
+        <h2 class="mb-4">📚 publications</h2>
+        <div id="filters-project" class="mb-2">  <!-- 减小底部间距 -->
             <button class="filter-button active" data-filter="*">ALL</button>
             
                 <button class="filter-button" data-filter="voronoi">VORONOI</button>
@@ -204,7 +277,9 @@
                 <button class="filter-button" data-filter="offset">OFFSET</button>
             
         </div>
-        <p></p>
+        <small class="author-notes" style="color: #666; display: block; margin: 4px 0 12px 0;">  <!-- 减小上下间距 -->
+            <sup>†</sup>Equal contribution. <sup>*</sup>Corresponding author.
+        </small>
         <div id="projects" class="isotope">
             
                 <div class="project" data-filter="voronoi">
@@ -216,36 +291,54 @@
             
             <b>Towards Voronoi Diagrams of Surface Patches.</b>
             <br />
-            <i><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945" target="_blank" rel="noopener">IEEE Transactions on Visualization and Computer Graphics (TVCG)</a></i> 
+            <i><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945" target="_blank" rel="noopener">IEEE Transactions on Visualization and Computer Graphics (TVCG)</a></i>
             
             <br />
             
+                
+                <a href="“#”">
+                    <strong>Pengfei Wang</strong>
+                </a>, 
             
-            <a href="“#”"><strong>Pengfei Wang</strong></a>, 
-             
+                
+                <a href="https://yuemos.github.io">
+                    Jiantao Song
+                </a>, 
             
-            <a href="https://yuemos.github.io">Jiantao Song</a>, 
-             
+                
+                <a href="https://alan-leo-wong.github.io">
+                    Lei Wang
+                </a>, 
             
-            <a href="https://alan-leo-wong.github.io">Lei Wang</a>, 
-             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin<sup>*</sup>
+                </a>, 
             
-            <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Shiqing Xin</a>, 
-             
+                
+                <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">
+                    Dongming Yan
+                </a>, 
             
-            <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">Dongming Yan</a>, 
-             
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen
+                </a>, 
             
-            <a href=""></a>, 
-             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>, 
             
-            <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Changhe Tu</a>, 
-             
+                
+                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
+                    Wenping Wang
+                </a>
             
-            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>
-             
             <br />
-             <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a> 
+            
+                <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
+            
             
             
             
@@ -253,16 +346,61 @@
             
             
             <br />
-            <u><b><i>Abstract</i></b>:</u> 
-            Extraction of a high-fidelity 3D medial axis is a crucial operation in CAD. When dealing with a polygonal model as input, ensuring accuracy and tidiness becomes challenging due to discretization errors inherent in the mesh surface. Commonly, existing approaches yield medial-axis surfaces with various artifacts, including zigzag boundaries, bumpy surfaces, unwanted
-            <span class="collapse" id="SpaceVoronoi">
-                spikes, and non-smooth stitching curves. Considering that the surface of a CAD model can be easily decomposed into a collection of surface patches, its 3D medial axis can be extracted by computing the Voronoi diagram of these surface patches, where each surface patch serves as a generator. However, no solver currently exists for accurately computing such an extended Voronoi diagram. Under the assumption that each generator defines a linear distance field over a sufficiently small range, our approach operates by tetrahedralizing the region of interest and computing the medial axis within each tetrahedral element. Just as SurfaceVoronoi computes surface-based Voronoi diagrams by cutting a 3D prism with 3D planes (each plane encodes a linear field in a triangle), the key operation in this paper is to conduct the hyperplane cutting process in 4D, where each hyperplane encodes a linear field in a tetrahedron. In comparison with the state-of-the-art, our algorithm produces better outcomes. Furthermore, it can also be used to compute the offset surface.
-            </span> 
-            <span> <a href="#SpaceVoronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-SpaceVoronoi">... See More</a></span>
-        </div>                       
+            <div class="abstract-container">
+                <u><b><i>Abstract</i></b>:</u>
+                <div class="abstract-content">
+                    <span class="abstract-preview">Extraction of a high-fidelity 3D medial axis is a crucial operation in CAD. When dealing with a polygonal model as input, ensuring accuracy and tidiness becomes challenging due to discretization errors inherent in the mesh surface. Commonly, existing approaches yield medial-axis surfaces with various artifacts, including zigzag boundaries, bumpy surfaces, unwanted spikes, and non-smooth stitching curves. Considering that the surface of a CAD model can be easily decomposed into a collection of surface patches, its 3D medial axis can be extracted by computing the Voronoi diagram of these surface patches, where each surface patch serves as a generator. However, no solver currently exists for accurately computing such an extended Voronoi diagram. Under the assumption that each generator defines a linear distance field over a sufficiently small range, our approach operates by tetrahedralizing the region of interest and computing the medial axis within each tetrahedral element. Just as SurfaceVoronoi computes surface-based Voronoi diagrams by cutting a 3D prism with 3D planes (each plane encodes a linear field in a triangle), the key operation in this paper is to conduct the hyperplane cutting process in 4D, where each hyperplane encodes a linear field in a tetrahedron. In comparison with the state-of-the-art, our algorithm produces better outcomes. Furthermore, it can also be used to compute the offset surface.</span>
+                    <span class="collapse" id="SpaceVoronoi">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#SpaceVoronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-SpaceVoronoi">... See More</a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-
+<style>
+    .abstract-container {
+        position: relative;
+        max-height: 4.8em;     /* 调整为3行文字高度 */
+        overflow: hidden;
+        margin-top: 8px;
+        line-height: 1.6;     /* 微调行高 */
+    }
+    
+    .abstract-content {
+        margin-bottom: 20px;
+    }
+    
+    .see-more-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 0 0 10px;
+        background: white;
+    }
+    
+    .abstract-container.expanded {
+        max-height: none;
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.toggleText = function(element) {
+            const container = element.closest('.abstract-container');
+            if (element.innerText === '... See More') {
+                element.innerText = 'See Less';
+                container.classList.add('expanded');
+            } else {
+                element.innerText = '... See More';
+                container.classList.remove('expanded');
+            }
+        }
+    });
+    </script>
             
                 <div class="project" data-filter="offset">
     <div class="row mb-4">
@@ -273,53 +411,118 @@
             
             <b>PCO:Precision-Controllable Offset Surfaces with Sharp Features.</b>
             <br />
-            <i><a href="https://asia.siggraph.org/2024/" target="_blank" rel="noopener">Siggraph Asia 2024</a></i> 
+            <i><a href="https://asia.siggraph.org/2024/" target="_blank" rel="noopener">Siggraph Asia 2024</a></i>
             
             <br />
             
+                
+                <a href="https://alan-leo-wong.github.io">
+                    Lei Wang
+                </a>, 
             
-            <a href="https://alan-leo-wong.github.io">Lei Wang</a>, 
-             
+                
+                <a href="“#”">
+                    Xudong Wang
+                </a>, 
             
-            <a href="“#”">Xudong Wang</a>, 
-             
+                
+                <a href="“#”">
+                    <strong>Pengfei Wang</strong>
+                </a>, 
             
-            <a href="“#”"><strong>Pengfei Wang</strong></a>, 
-             
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen
+                </a>, 
             
-            <a href="https://ieeexplore.ieee.org/author/37088955375">Shuangmin Chen</a>, 
-             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin<sup>*</sup>
+                </a>, 
             
-            <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Shiqing Xin</a>, 
-             
+                
+                <a href="“#”">
+                    Jiong Guo
+                </a>, 
             
-            <a href="“#”">Jiong Guo</a>, 
-             
+                
+                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
+                    Wenping Wang
+                </a>, 
             
-            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>, 
-             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>
             
-            <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Changhe Tu</a>
-             
             <br />
-             <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener">[PDF]</a> 
+            
+                <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener">[PDF]</a>
             
             
             
             
             
-             | <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener">[PROJECT PAGE]</a> 
+            
+            
+                | <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener">[PROJECT PAGE]</a>
+            
             <br />
-            <u><b><i>Abstract</i></b>:</u> 
-            Surface offsetting is a crucial operation in digital geometry processing and computer-aided design, where an offset is defined as an iso-value surface of the distance field. A challenge emerges as even smooth surfaces can exhibit sharp features in their offsets due to the non-differentiable characteristics of the underlying distance field. Prevailing approaches to
-            <span class="collapse" id="SIGASIA_OFFSET">
-                the offsetting problem involve approximating the distance field and then extracting the iso-surface. However, even with dual contouring (DC), there is a risk of degrading sharp feature points/lines due to the inaccurate discretization of the distance field. This issue is exacerbated when the input is a piecewise-linear triangle mesh. This study is inspired by the observation that a triangle-based distance field, unlike the complex distance field rooted at the entire surface, remains smooth across the entire 3D space except at the triangle itself. With a polygonal surface comprising n triangles, the final distance field for accommodating the offset surface is determined by minimizing these n triangle-based distance fields. In implementation, our approach starts by tetrahedralizing the space around the offset surface, enabling a tetrahedron-wise linear approximation for each triangle-based distance field. The final offset surface within a tetrahedral range can be traced by slicing the tetrahedron with planes. As illustrated in the teaser figure, a key advantage of our algorithm is its ability to precisely preserve sharp features. Furthermore, this paper addresses the problem of simplifying the offset surface's complexity while preserving sharp features, formulating it as a maximal-clique problem.
-            </span> 
-            <span> <a href="#SIGASIA_OFFSET" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_OFFSET">... See More</a></span>
-        </div>                       
+            <div class="abstract-container">
+                <u><b><i>Abstract</i></b>:</u>
+                <div class="abstract-content">
+                    <span class="abstract-preview">Surface offsetting is a crucial operation in digital geometry processing and computer-aided design, where an offset is defined as an iso-value surface of the distance field. A challenge emerges as even smooth surfaces can exhibit sharp features in their offsets due to the non-differentiable characteristics of the underlying distance field. Prevailing approaches to the offsetting problem involve approximating the distance field and then extracting the iso-surface. However, even with dual contouring (DC), there is a risk of degrading sharp feature points/lines due to the inaccurate discretization of the distance field. This issue is exacerbated when the input is a piecewise-linear triangle mesh. This study is inspired by the observation that a triangle-based distance field, unlike the complex distance field rooted at the entire surface, remains smooth across the entire 3D space except at the triangle itself. With a polygonal surface comprising n triangles, the final distance field for accommodating the offset surface is determined by minimizing these n triangle-based distance fields. In implementation, our approach starts by tetrahedralizing the space around the offset surface, enabling a tetrahedron-wise linear approximation for each triangle-based distance field. The final offset surface within a tetrahedral range can be traced by slicing the tetrahedron with planes. As illustrated in the teaser figure, a key advantage of our algorithm is its ability to precisely preserve sharp features. Furthermore, this paper addresses the problem of simplifying the offset surface's complexity while preserving sharp features, formulating it as a maximal-clique problem.</span>
+                    <span class="collapse" id="SIGASIA_OFFSET">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#SIGASIA_OFFSET" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_OFFSET">... See More</a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-
+<style>
+    .abstract-container {
+        position: relative;
+        max-height: 4.8em;     /* 调整为3行文字高度 */
+        overflow: hidden;
+        margin-top: 8px;
+        line-height: 1.6;     /* 微调行高 */
+    }
+    
+    .abstract-content {
+        margin-bottom: 20px;
+    }
+    
+    .see-more-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 0 0 10px;
+        background: white;
+    }
+    
+    .abstract-container.expanded {
+        max-height: none;
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.toggleText = function(element) {
+            const container = element.closest('.abstract-container');
+            if (element.innerText === '... See More') {
+                element.innerText = 'See Less';
+                container.classList.add('expanded');
+            } else {
+                element.innerText = '... See More';
+                container.classList.remove('expanded');
+            }
+        }
+    });
+    </script>
             
                 <div class="project" data-filter="geodesic">
     <div class="row mb-4">
@@ -330,50 +533,113 @@
             
             <b>Towards geodesic ridge curve for region-wise linear representation of geodesic distance field</b>
             <br />
-            <i><a href="https://irc.cs.sdu.edu.cn/gmp2024/index.html#/" target="_blank" rel="noopener">Computer Aided Geometric Design (CAGD). Present at GMP 2024.</a></i> 
-             <b style="color: #e74d3c">[Best Paper Award]</b> 
-            <br />
+            <i><a href="https://irc.cs.sdu.edu.cn/gmp2024/index.html#/" target="_blank" rel="noopener">Computer Aided Geometric Design (CAGD). Present at GMP 2024.</a></i>
             
-            
-            <a href="“#”">Wei Liu<sup>1</sup></a>, 
-             
-            
-            <a href="“#”"><strong>Pengfei Wang</strong><sup>1</sup></a>, 
-             
-            
-            <a href="https://ieeexplore.ieee.org/author/37088955375">Shuangmin Chen</a>, 
-             
-            
-            <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Shiqing Xin</a>, 
-             
-            
-            <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Changhe Tu</a>, 
-             
-            
-            <a href="https://personal.ntu.edu.sg/yhe/">Ying He</a>, 
-             
-            
-            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>
-             
-            <br />
-             <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener">[PDF]</a> 
-            
-            
-            
-            
-            
+                <b style="color: #e74d3c">[Best Paper Award]</b>
             
             <br />
-            <u><b><i>Abstract</i></b>:</u> 
-            This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist.
-            <span class="collapse" id="GMP_GEODESIC">
-                An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.
-            </span> 
-            <span> <a href="#GMP_GEODESIC" data-toggle="collapse" onclick="toggleText(this)" id="link-GMP_GEODESIC">... See More</a></span>
-        </div>                       
+            
+                
+                <a href="“#”">
+                    Wei Liu<sup>†</sup>
+                </a>, 
+            
+                
+                <a href="“#”">
+                    <strong>Pengfei Wang</strong><sup>†</sup>
+                </a>, 
+            
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen<sup>*</sup>
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>, 
+            
+                
+                <a href="https://personal.ntu.edu.sg/yhe/">
+                    Ying He
+                </a>, 
+            
+                
+                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
+                    Wenping Wang
+                </a>
+            
+            <br />
+            
+                <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener">[PDF]</a>
+            
+            
+            
+            
+            
+            
+            
+            <br />
+            <div class="abstract-container">
+                <u><b><i>Abstract</i></b>:</u>
+                <div class="abstract-content">
+                    <span class="abstract-preview">This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist. An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.</span>
+                    <span class="collapse" id="GMP_GEODESIC">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#GMP_GEODESIC" data-toggle="collapse" onclick="toggleText(this)" id="link-GMP_GEODESIC">... See More</a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-
+<style>
+    .abstract-container {
+        position: relative;
+        max-height: 4.8em;     /* 调整为3行文字高度 */
+        overflow: hidden;
+        margin-top: 8px;
+        line-height: 1.6;     /* 微调行高 */
+    }
+    
+    .abstract-content {
+        margin-bottom: 20px;
+    }
+    
+    .see-more-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 0 0 10px;
+        background: white;
+    }
+    
+    .abstract-container.expanded {
+        max-height: none;
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.toggleText = function(element) {
+            const container = element.closest('.abstract-container');
+            if (element.innerText === '... See More') {
+                element.innerText = 'See Less';
+                container.classList.add('expanded');
+            } else {
+                element.innerText = '... See More';
+                container.classList.remove('expanded');
+            }
+        }
+    });
+    </script>
             
                 <div class="project" data-filter="voronoi">
     <div class="row mb-4">
@@ -384,59 +650,122 @@
             
             <b>Efficiently Computing Voronoi Diagrams over Mesh Surfaces with Arbitrary Distance Solvers</b>
             <br />
-            <i><a href="https://sa2022.siggraph.org/en/index.html" target="_blank" rel="noopener">ACM Transactions on Graphics (TOG). Present at SIGGRAPH Asia 2022.</a></i> 
+            <i><a href="https://sa2022.siggraph.org/en/index.html" target="_blank" rel="noopener">ACM Transactions on Graphics (TOG). Present at SIGGRAPH Asia 2022.</a></i>
             
             <br />
             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin
+                </a>, 
             
-            <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">Shiqing Xin</a>, 
-             
+                
+                <a href="“#”">
+                    <strong>Pengfei Wang</strong>
+                </a>, 
             
-            <a href="“#”"><strong>Pengfei Wang</strong></a>, 
-             
+                
+                <a href="https://personal.ntu.edu.sg/yhe/">
+                    Rui Xu
+                </a>, 
             
-            <a href="https://personal.ntu.edu.sg/yhe/">Rui Xu</a>, 
-             
+                
+                <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">
+                    Dongming Yan
+                </a>, 
             
-            <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">Dongming Yan</a>, 
-             
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen<sup>*</sup>
+                </a>, 
             
-            <a href="https://ieeexplore.ieee.org/author/37088955375">Shuangmin Chen</a>, 
-             
+                
+                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
+                    Wenping Wang
+                </a>, 
             
-            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>, 
-             
+                
+                <a href="https://personal.ntu.edu.sg/yhe/">
+                    Caiming Zhang
+                </a>, 
             
-            <a href="https://personal.ntu.edu.sg/yhe/">Caiming Zhang</a>, 
-             
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>
             
-            <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">Changhe Tu</a>
-             
             <br />
-             <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a> 
-             | <a href="https://github.com/sssomeone/SurfaceVoronoi" target="_blank" rel="noopener">[CODE]</a> 
+            
+                <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
+            
+            
+                | <a href="https://github.com/sssomeone/SurfaceVoronoi" target="_blank" rel="noopener">[CODE]</a>
+            
             
             
             
             
             
             <br />
-            <u><b><i>Abstract</i></b>:</u> 
-            In this paper, we propose to compute Voronoi diagrams over mesh surfaces driven by an arbitrary geodesic distance solver, assuming that the input is a triangle mesh as well as a collection of sites on the surface. We propose two key techniques to solve this problem. First, as the partition is
-            <span class="collapse" id="SIGASIA_SURFACEVORONOI">
-                determined by minimizing the m distance fields, each of which rooted at a source site,we suggest keeping one or more distance triples, for each triangle, that may help determine the Voronoi bisectors when one uses a mark-and-sweep geodesic algorithm to predict the multi-source distance field. Second, rather than keep the distance itself at a mesh vertex, we use the squared distance to characterize the linear change of distance field restricted in a triangle, which is proved to induce an exact VD when the base surface reduces to a planar triangle mesh.Specially, our algorithm also supports the Euclidean distance, which can handle thin-sheet models (e.g. leaf) and runs fasterthan the traditional restricted Voronoi diagram (RVD) algorithm. It is very extensible to deal with various variants of surface-based Voronoi diagrams including(1) surface-based power diagram, (2) constrained Voronoi diagram with curve-type breaklines,and (3) curve-type generators. We conduct extensive experimental results to validate the ability to approximate the exact VD in different distance-driven scenarios.
-            </span> 
-            <span> <a href="#SIGASIA_SURFACEVORONOI" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_SURFACEVORONOI">... See More</a></span>
-        </div>                       
+            <div class="abstract-container">
+                <u><b><i>Abstract</i></b>:</u>
+                <div class="abstract-content">
+                    <span class="abstract-preview">In this paper, we propose to compute Voronoi diagrams over mesh surfaces driven by an arbitrary geodesic distance solver, assuming that the input is a triangle mesh as well as a collection of sites on the surface. We propose two key techniques to solve this problem. First, as the partition is determined by minimizing the m distance fields, each of which rooted at a source site,we suggest keeping one or more distance triples, for each triangle, that may help determine the Voronoi bisectors when one uses a mark-and-sweep geodesic algorithm to predict the multi-source distance field. Second, rather than keep the distance itself at a mesh vertex, we use the squared distance to characterize the linear change of distance field restricted in a triangle, which is proved to induce an exact VD when the base surface reduces to a planar triangle mesh.Specially, our algorithm also supports the Euclidean distance, which can handle thin-sheet models (e.g. leaf) and runs fasterthan the traditional restricted Voronoi diagram (RVD) algorithm. It is very extensible to deal with various variants of surface-based Voronoi diagrams including(1) surface-based power diagram, (2) constrained Voronoi diagram with curve-type breaklines,and (3) curve-type generators. We conduct extensive experimental results to validate the ability to approximate the exact VD in different distance-driven scenarios.</span>
+                    <span class="collapse" id="SIGASIA_SURFACEVORONOI">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#SIGASIA_SURFACEVORONOI" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_SURFACEVORONOI">... See More</a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-
+<style>
+    .abstract-container {
+        position: relative;
+        max-height: 4.8em;     /* 调整为3行文字高度 */
+        overflow: hidden;
+        margin-top: 8px;
+        line-height: 1.6;     /* 微调行高 */
+    }
+    
+    .abstract-content {
+        margin-bottom: 20px;
+    }
+    
+    .see-more-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 0 0 10px;
+        background: white;
+    }
+    
+    .abstract-container.expanded {
+        max-height: none;
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.toggleText = function(element) {
+            const container = element.closest('.abstract-container');
+            if (element.innerText === '... See More') {
+                element.innerText = 'See Less';
+                container.classList.add('expanded');
+            } else {
+                element.innerText = '... See More';
+                container.classList.remove('expanded');
+            }
+        }
+    });
+    </script>
             
         </div>
-        <p></p>
     </div>
 </div>
-
 <!-- Resources section -->
 
 <hr />
