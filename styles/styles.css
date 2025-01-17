@@ -1048,3 +1048,20 @@ canvas {
 .abstract-container.expanded {
     max-height: none;
 }
+
+
+
+/* 主题相关的CSS变量 */
+body.light-theme {
+    --card-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-tertiary: #888888;
+}
+
+body.dark-theme {
+    --card-bg: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #dddddd;
+    --text-tertiary: #aaaaaa;
+}
