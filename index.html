@@ -325,126 +325,7 @@
         </small>
         <div id="projects" class="isotope">
             
-                <!-- <div class="project" data-filter="nearest_neighbor_search">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/nns2.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>Efficient Nearest Neighbor Search Using Dynamic Programming</b>
-            <br>
-            <i><a href="" target="_blank" rel="noopener"></a></i>
-            
-                <b style="color: #e74d3c">[Preprint]</b>
-            
-            <br>
-            
                 
-                <a href="“”">
-                    <strong>Pengfei Wang</strong>
-                </a>, 
-            
-                
-                <a href="https://yuemos.github.io">
-                    Jiantao Song
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
-                    Shiqing Xin<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="https://ieeexplore.ieee.org/author/37088955375">
-                    Shuangmin Chen
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
-                    Changhe Tu
-                </a>, 
-            
-                
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
-                    Wenping Wang
-                </a>, 
-            
-                
-                <a href="">
-                    Jiaye Wang
-                </a>
-            
-            <br>
-            
-                <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener">[PDF]</a>
-            
-            
-            
-            
-            
-            
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">Given a collection of points in <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>ℝ</mi><mn>3</mn></msup></math>, KD-Tree and R-Tree are well-known nearest neighbor search (NNS) algorithms that rely on space partitioning and spatial indexing techniques. However, when the query point is far from the data points or the data points inherently represent a 2-manifold surface, their query performance may degrade. To address this, we propose a novel dynamic programming technique that precomputes a Directed Acyclic Graph (DAG) to encode the proximity structure between data points. More specifically, the DAG captures how the proximity structure evolves during the incremental construction of the Voronoi diagram of the data points. Experimental results demonstrate that our method achieves a 1x-10x speedup. Additionally, our algorithm offers several valuable features. For instance, it naturally supports an <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo>(</mo><mi>k</mi><mo> </mo><mi>log</mi><mo> </mo><mi>n</mi><mo>)</mo></math> algorithm for farthest point sampling, where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math> is the desired number of sample points. Moreover, density peak clustering, which involves finding the nearest point among the top K points, is typically considered to have a time complexity of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></math>. With our algorithm, this can be reduced to <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo>(</mo><mi>n</mi><mo> </mo><mi>log</mi><mo> </mo><mi>n</mi><mo>)</mo></math>. We believe this work will inspire further research on the NNS problem.</span>
-                    <span class="collapse" id="nearestNeighborSearch">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#nearestNeighborSearch" data-toggle="collapse" onclick="toggleText(this)" id="link-nearestNeighborSearch">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="nearest_neighbor_search">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -565,6 +446,23 @@
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
@@ -582,129 +480,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             
-                <!-- <div class="project" data-filter="voronoi">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/spacevoronoi.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>Towards Voronoi Diagrams of Surface Patches.</b>
-            <br>
-            <i><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945" target="_blank" rel="noopener">IEEE Transactions on Visualization and Computer Graphics (TVCG)</a></i>
-            
-            <br>
-            
                 
-                <a href="“”">
-                    <strong>Pengfei Wang</strong>
-                </a>, 
-            
-                
-                <a href="https://yuemos.github.io">
-                    Jiantao Song
-                </a>, 
-            
-                
-                <a href="https://alan-leo-wong.github.io">
-                    Lei Wang
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
-                    Shiqing Xin<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">
-                    Dongming Yan
-                </a>, 
-            
-                
-                <a href="https://ieeexplore.ieee.org/author/37088955375">
-                    Shuangmin Chen
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
-                    Changhe Tu
-                </a>, 
-            
-                
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
-                    Wenping Wang
-                </a>
-            
-            <br>
-            
-                <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
-            
-            
-            
-            
-            
-            
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">Extraction of a high-fidelity 3D medial axis is a crucial operation in CAD. When dealing with a polygonal model as input, ensuring accuracy and tidiness becomes challenging due to discretization errors inherent in the mesh surface. Commonly, existing approaches yield medial-axis surfaces with various artifacts, including zigzag boundaries, bumpy surfaces, unwanted spikes, and non-smooth stitching curves. Considering that the surface of a CAD model can be easily decomposed into a collection of surface patches, its 3D medial axis can be extracted by computing the Voronoi diagram of these surface patches, where each surface patch serves as a generator. However, no solver currently exists for accurately computing such an extended Voronoi diagram. Under the assumption that each generator defines a linear distance field over a sufficiently small range, our approach operates by tetrahedralizing the region of interest and computing the medial axis within each tetrahedral element. Just as SurfaceVoronoi computes surface-based Voronoi diagrams by cutting a 3D prism with 3D planes (each plane encodes a linear field in a triangle), the key operation in this paper is to conduct the hyperplane cutting process in 4D, where each hyperplane encodes a linear field in a tetrahedron. In comparison with the state-of-the-art, our algorithm produces better outcomes. Furthermore, it can also be used to compute the offset surface.</span>
-                    <span class="collapse" id="SpaceVoronoi">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#SpaceVoronoi" data-toggle="collapse" onclick="toggleText(this)" id="link-SpaceVoronoi">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="voronoi">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -828,6 +604,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
@@ -845,131 +638,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             
-                <!-- <div class="project" data-filter="offset">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/SIGGRAPHAsia2024PCO.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>PCO:Precision-Controllable Offset Surfaces with Sharp Features.</b>
-            <br>
-            <i><a href="https://asia.siggraph.org/2024/" target="_blank" rel="noopener">Siggraph Asia 2024</a></i>
-            
-            <br>
-            
                 
-                <a href="https://alan-leo-wong.github.io">
-                    Lei Wang
-                </a>, 
-            
-                
-                <a href="“”">
-                    Xudong Wang
-                </a>, 
-            
-                
-                <a href="“”">
-                    <strong>Pengfei Wang</strong>
-                </a>, 
-            
-                
-                <a href="https://ieeexplore.ieee.org/author/37088955375">
-                    Shuangmin Chen
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
-                    Shiqing Xin<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="“”">
-                    Jiong Guo
-                </a>, 
-            
-                
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
-                    Wenping Wang
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
-                    Changhe Tu
-                </a>
-            
-            <br>
-            
-                <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener">[PDF]</a>
-            
-            
-            
-            
-            
-            
-            
-                | <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener">[PROJECT PAGE]</a>
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">Surface offsetting is a crucial operation in digital geometry processing and computer-aided design, where an offset is defined as an iso-value surface of the distance field. A challenge emerges as even smooth surfaces can exhibit sharp features in their offsets due to the non-differentiable characteristics of the underlying distance field. Prevailing approaches to the offsetting problem involve approximating the distance field and then extracting the iso-surface. However, even with dual contouring (DC), there is a risk of degrading sharp feature points/lines due to the inaccurate discretization of the distance field. This issue is exacerbated when the input is a piecewise-linear triangle mesh. This study is inspired by the observation that a triangle-based distance field, unlike the complex distance field rooted at the entire surface, remains smooth across the entire 3D space except at the triangle itself. With a polygonal surface comprising n triangles, the final distance field for accommodating the offset surface is determined by minimizing these n triangle-based distance fields. In implementation, our approach starts by tetrahedralizing the space around the offset surface, enabling a tetrahedron-wise linear approximation for each triangle-based distance field. The final offset surface within a tetrahedral range can be traced by slicing the tetrahedron with planes. As illustrated in the teaser figure, a key advantage of our algorithm is its ability to precisely preserve sharp features. Furthermore, this paper addresses the problem of simplifying the offset surface's complexity while preserving sharp features, formulating it as a maximal-clique problem.</span>
-                    <span class="collapse" id="SIGASIA_OFFSET">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#SIGASIA_OFFSET" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_OFFSET">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="offset">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -1095,6 +764,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
@@ -1112,129 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             
-                <!-- <div class="project" data-filter="girlfriend">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/jiezhang.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>A N-doped carbon-supported In<sub>2</sub>O<sub>3</sub> catalyst for highly efficient CO<sub>2</sub> electroreduction to HCOOH</b>
-            <br>
-            <i><a href="https://pubs.rsc.org/en/journals/journalissues/cc#!recentarticles&adv" target="_blank" rel="noopener">Chemical Communications.</a></i>
-            
-            <br>
-            
                 
-                <a href="">
-                    Jie Zhang<sup>†</sup>
-                </a>, 
-            
-                
-                <a href="">
-                    Manfen Liang<sup>†</sup>
-                </a>, 
-            
-                
-                <a href="">
-                    Haimei Xu
-                </a>, 
-            
-                
-                <a href="">
-                    Hong Huang
-                </a>, 
-            
-                
-                <a href="">
-                    Jian Meng
-                </a>, 
-            
-                
-                <a href="">
-                    Jinglin Mu<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="">
-                    Zhichao Miao<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="">
-                    jin_zhou<sup>*</sup>
-                </a>
-            
-            <br>
-            
-                <a href="">[PDF]</a>
-            
-            
-            
-            
-            
-            
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">A novel In<sub>2</sub>O<sub>3</sub>@NC catalyst has been prepared and employed in CO<sub>2</sub> electroreduction to HCOOH. The C and N species successfully improve the electronic structure of In<sub>2</sub>O<sub>3</sub> and enhance the adsorp-tion ability of CO<sub>2</sub>. The In<sub>2</sub>O<sub>3</sub>@NC catalyst exhibits a remarkably high FE<sub>HCOOH</sub> of 97.1%, j<sub>total</sub> of 190 mA cm<sup>-2</sup>, and stability for 60 h.</span>
-                    <span class="collapse" id="Grilfriend_Paper">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#Grilfriend_Paper" data-toggle="collapse" onclick="toggleText(this)" id="link-Grilfriend_Paper">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="girlfriend">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -1354,6 +918,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
@@ -1371,126 +952,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             
-                <!-- <div class="project" data-filter="geodesic">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/cutlocus.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>Towards geodesic ridge curve for region-wise linear representation of geodesic distance field</b>
-            <br>
-            <i><a href="https://irc.cs.sdu.edu.cn/gmp2024/index.html#/" target="_blank" rel="noopener">Computer Aided Geometric Design (CAGD). Present at GMP 2024.</a></i>
-            
-                <b style="color: #e74d3c">[Best Paper Award]</b>
-            
-            <br>
-            
                 
-                <a href="“”">
-                    Wei Liu<sup>†</sup>
-                </a>, 
-            
-                
-                <a href="“”">
-                    <strong>Pengfei Wang</strong><sup>†</sup>
-                </a>, 
-            
-                
-                <a href="https://ieeexplore.ieee.org/author/37088955375">
-                    Shuangmin Chen<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
-                    Shiqing Xin
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
-                    Changhe Tu
-                </a>, 
-            
-                
-                <a href="https://personal.ntu.edu.sg/yhe/">
-                    Ying He
-                </a>, 
-            
-                
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
-                    Wenping Wang
-                </a>
-            
-            <br>
-            
-                <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener">[PDF]</a>
-            
-            
-            
-            
-            
-            
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">This paper addresses the challenge of representing geodesic distance fields on triangular meshes in a piecewise linear manner. Unlike general scalar fields, which often assume piecewise linear changes within each triangle, geodesic distance fields pose a unique difficulty due to their non-differentiability at ridge points, where multiple shortest paths may exist. An interesting observation is that the geodesic distance field exhibits an approximately linear change if each triangle is further decomposed into sub-regions by the ridge curve. However, computing the geodesic ridge curve is notoriously difficult. Even when using exact algorithms to infer the ridge curve, desirable results may not be achieved, akin to the well-known medial-axis problem. In this paper, we propose a two-stage algorithm. In the first stage, we employ Dijkstra's algorithm to cut the surface open along the dual structure of the shortest path tree. This operation allows us to extend the surface outward (resembling a double cover but with distinctions), enabling the discovery of longer geodesic paths in the extended surface. In the second stage, any mature geodesic solver, whether exact or approximate, can be employed to predict the real ridge curve. Assuming the fast marching method is used as the solver, despite its limitation of having a single marching direction in a triangle, our extended surface contains multiple copies of each triangle, allowing various geodesic paths to enter the triangle and facilitating ridge curve computation. We further introduce a simple yet effective filtering mechanism to rigorously ensure the connectivity of the output ridge curve. Due to its merits, including robustness and compatibility with any geodesic solver, our algorithm holds great potential for a wide range of applications. We demonstrate its utility in accurate geodesic distance querying and high-fidelity visualization of geodesic iso-lines.</span>
-                    <span class="collapse" id="GMP_GEODESIC">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#GMP_GEODESIC" data-toggle="collapse" onclick="toggleText(this)" id="link-GMP_GEODESIC">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="geodesic">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -1611,6 +1073,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
@@ -1628,131 +1107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             
-                <!-- <div class="project" data-filter="voronoi">
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/surfaceVoronoi.png">
-        </div>
-        <div class="col-sm-8">
-            
-            <b>Efficiently Computing Voronoi Diagrams over Mesh Surfaces with Arbitrary Distance Solvers</b>
-            <br>
-            <i><a href="https://sa2022.siggraph.org/en/index.html" target="_blank" rel="noopener">ACM Transactions on Graphics (TOG). Present at SIGGRAPH Asia 2022.</a></i>
-            
-            <br>
-            
                 
-                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
-                    Shiqing Xin
-                </a>, 
-            
-                
-                <a href="“”">
-                    <strong>Pengfei Wang</strong>
-                </a>, 
-            
-                
-                <a href="https://ruixu.me">
-                    Rui Xu
-                </a>, 
-            
-                
-                <a href="https://sites.google.com/site/yandongming/dong-ming-yans-homepage">
-                    Dongming Yan
-                </a>, 
-            
-                
-                <a href="https://ieeexplore.ieee.org/author/37088955375">
-                    Shuangmin Chen<sup>*</sup>
-                </a>, 
-            
-                
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">
-                    Wenping Wang
-                </a>, 
-            
-                
-                <a href="https://personal.ntu.edu.sg/yhe/">
-                    Caiming Zhang
-                </a>, 
-            
-                
-                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
-                    Changhe Tu
-                </a>
-            
-            <br>
-            
-                <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
-            
-            
-                | <a href="https://github.com/sssomeone/SurfaceVoronoi" target="_blank" rel="noopener">[CODE]</a>
-            
-            
-            
-            
-            
-            
-            <br>
-            <div class="abstract-container">
-                <u><b><i>Abstract</i></b>:</u>
-                <div class="abstract-content">
-                    <span class="abstract-preview">In this paper, we propose to compute Voronoi diagrams over mesh surfaces driven by an arbitrary geodesic distance solver, assuming that the input is a triangle mesh as well as a collection of sites on the surface. We propose two key techniques to solve this problem. First, as the partition is determined by minimizing the m distance fields, each of which rooted at a source site,we suggest keeping one or more distance triples, for each triangle, that may help determine the Voronoi bisectors when one uses a mark-and-sweep geodesic algorithm to predict the multi-source distance field. Second, rather than keep the distance itself at a mesh vertex, we use the squared distance to characterize the linear change of distance field restricted in a triangle, which is proved to induce an exact VD when the base surface reduces to a planar triangle mesh.Specially, our algorithm also supports the Euclidean distance, which can handle thin-sheet models (e.g. leaf) and runs fasterthan the traditional restricted Voronoi diagram (RVD) algorithm. It is very extensible to deal with various variants of surface-based Voronoi diagrams including(1) surface-based power diagram, (2) constrained Voronoi diagram with curve-type breaklines,and (3) curve-type generators. We conduct extensive experimental results to validate the ability to approximate the exact VD in different distance-driven scenarios.</span>
-                    <span class="collapse" id="SIGASIA_SURFACEVORONOI">
-                        
-                    </span>
-                </div>
-                <span class="see-more-btn">
-                    <a href="#SIGASIA_SURFACEVORONOI" data-toggle="collapse" onclick="toggleText(this)" id="link-SIGASIA_SURFACEVORONOI">... See More</a>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;     /* 调整为3行文字高度 */
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;     /* 微调行高 */
-    }
-    
-    .abstract-content {
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: white;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
-    </style>
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.toggleText = function(element) {
-            const container = element.closest('.abstract-container');
-            if (element.innerText === '... See More') {
-                element.innerText = 'See Less';
-                container.classList.add('expanded');
-            } else {
-                element.innerText = '... See More';
-                container.classList.remove('expanded');
-            }
-        }
-    });
-    </script> 
-
- -->
-
-
  <div class="project" data-filter="voronoi">
     <div class="row mb-4">
         <div class="col-sm-4">
@@ -1878,6 +1233,23 @@ document.addEventListener('DOMContentLoaded', function() {
     .abstract-container.expanded {
         max-height: none;
     }
+
+    
+    .project img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px; /* Add a little space below image */
+}
+.abstract-content {
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+
 </style>
     
 <script>
