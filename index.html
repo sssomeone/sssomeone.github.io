@@ -177,13 +177,13 @@
         <div class="owl-carousel owl-theme">
             
                 <div class="news-card">
-    <img src="assets/img/updates_gan/tvcg_accept.jpg" class="w-full rounded-lg" />
+    <img src="assets/img/updates_gan/tvcg.png" class="w-full rounded-lg" />
     <div class="news-desc">One paper is accepted to  <hightlight>TVCG</hightlight>.</div>
     <div class="news-time">January 2025</div>
 </div>
             
                 <div class="news-card">
-    <img src="assets/img/updates_gan/startPHD.jpg" class="w-full rounded-lg" />
+    <img src="assets/img/updates_gan/phd.png" class="w-full rounded-lg" />
     <div class="news-desc">I will continue my <hightlight>PhD studies in computer graphics</hightlight> at Shandong University.</div>
     <div class="news-time">September 2024</div>
 </div>
@@ -319,11 +319,243 @@
             
                 <button class="filter-button" data-filter="nearest_neighbor_search">Nearest Neighbor Search</button>
             
+                <button class="filter-button" data-filter="meshing">Meshing</button>
+            
         </div>
         <small class="author-notes" style="color: #666; display: block; margin: 4px 0 12px 0;">  <!-- 减小上下间距 -->
             <sup>†</sup>Equal contribution. <sup>*</sup>Corresponding author.
         </small>
         <div id="projects" class="isotope">
+            
+                
+ <div class="project" data-filter="meshing">
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/surfaceextract.png" />
+        </div>
+        <div class="col-sm-8">
+            
+            <b>Power Diagram Enhanced Adaptive Isosurface Extraction from Signed Distance Fields</b>
+            <br />
+            <i><a href="" target="_blank" rel="noopener"></a></i>
+            <!-- 
+                <b style="color: #e74d3c">[Preprint]</b>
+             -->
+            
+            <span class="status-tag 
+                preprint
+                
+                ">
+                Preprint
+            </span>
+        
+            <br />
+            
+                
+                <a href="“”">
+                    <strong>Pengfei Wang</strong>
+                </a>, 
+            
+                
+                <a href="“”">
+                    Ziyang Zhang
+                </a>, 
+            
+                
+                <a href="“”">
+                    Wensong Wang
+                </a>, 
+            
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen
+                </a>, 
+            
+                
+                <a href="“”">
+                    Lin Lu
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin<sup>*</sup>
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>
+            
+            <br />
+            
+                <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+            
+            
+            
+            
+            
+            <!-- 
+                <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener">[PDF]</a>
+            
+            
+            
+            
+            
+            
+            
+            
+            <br>
+             -->
+            <div class="abstract-container">
+                <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
+                <div class="abstract-content">
+                    <span class="abstract-preview">Extracting high-fidelity mesh surfaces from Signed Distance Fields has become a fundamental operation in geometry processing. Despite significant progress over the past decades, key challenges remain-namely, how to automatically capture the intricate geometric and topological structures encoded in the zero level set of SDFs. In this paper, we present a novel isosurface extraction algorithm that introduces two key innovations, 1.An incrementally constructed power diagram through the addition of sample points, which enables repeated updates to the extracted surface via its dual-regular Delaunay tetrahedralization; and 2.An adaptive point insertion strategy that identifies regions exhibiting the greatest discrepancy between the current mesh and the underlying continuous surface. As the teaser figure shows, our framework progressively refines the extracted mesh with minimal computational cost until it sufficiently approximates the underlying surface. Experimental results demonstrate that our approach outperforms state-of-the-art methods, particularly for models with intricate geometric variations and complex topologies.</span>
+                    <span class="collapse" id="surface_extraction">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#surface_extraction" data-toggle="collapse" onclick="toggleText(this)" id="link-surface_extraction">... See More</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
+
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
+    text-align: justify;
+}
+
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
+
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
+
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
+
+</style>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.toggleText = function(element) {
+        const container = element.closest('.abstract-container');
+        if (element.innerText === '... See More') {
+            element.innerText = 'See Less';
+            container.classList.add('expanded');
+        } else {
+            element.innerText = '... See More';
+            container.classList.remove('expanded');
+        }
+    }
+});
+</script>
             
                 
  <div class="project" data-filter="nearest_neighbor_search">
@@ -336,9 +568,17 @@
             <b>Efficient Nearest Neighbor Search Using Dynamic Programming</b>
             <br />
             <i><a href="" target="_blank" rel="noopener"></a></i>
-            
+            <!-- 
                 <b style="color: #e74d3c">[Preprint]</b>
+             -->
             
+            <span class="status-tag 
+                preprint
+                
+                ">
+                Preprint
+            </span>
+        
             <br />
             
                 
@@ -378,6 +618,15 @@
             
             <br />
             
+                <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+            
+            
+            
+            
+            
+            <!-- 
                 <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener">[PDF]</a>
             
             
@@ -387,8 +636,8 @@
             
             
             
-            <br />
-            
+            <br>
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -406,62 +655,120 @@
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
@@ -491,6 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <b>Towards Voronoi Diagrams of Surface Patches.</b>
             <br />
             <i><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945" target="_blank" rel="noopener">IEEE Transactions on Visualization and Computer Graphics (TVCG)</a></i>
+            <!--  -->
             
             <br />
             
@@ -536,6 +844,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <br />
             
+                <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+            
+            
+            
+            
+            
+            <!-- 
                 <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
             
             
@@ -545,8 +862,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <br />
-            
+            <br>
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -564,62 +881,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
@@ -649,6 +1024,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <b>PCO:Precision-Controllable Offset Surfaces with Sharp Features.</b>
             <br />
             <i><a href="https://asia.siggraph.org/2024/" target="_blank" rel="noopener">Siggraph Asia 2024</a></i>
+            <!--  -->
             
             <br />
             
@@ -694,6 +1070,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <br />
             
+                <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+            
+            
+            
+            
+            
+                <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener" class="resource-btn">Project Page</a>
+            
+            <!-- 
                 <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener">[PDF]</a>
             
             
@@ -705,8 +1092,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 | <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener">[PROJECT PAGE]</a>
             
             
-            <br />
-            
+            <br>
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -724,62 +1111,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
@@ -809,6 +1254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <b>A N-doped carbon-supported In<sub>2</sub>O<sub>3</sub> catalyst for highly efficient CO<sub>2</sub> electroreduction to HCOOH</b>
             <br />
             <i><a href="https://pubs.rsc.org/en/journals/journalissues/cc#!recentarticles&amp;adv" target="_blank" rel="noopener">Chemical Communications.</a></i>
+            <!--  -->
             
             <br />
             
@@ -849,7 +1295,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
                 
                 <a href="">
-                    jin_zhou<sup>*</sup>
+                    Jin Zhou<sup>*</sup>
                 </a>
             
             <br />
@@ -860,7 +1306,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
+            <!-- 
             
+            
+            
+            
+            
+            
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -878,62 +1331,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
@@ -963,9 +1474,17 @@ document.addEventListener('DOMContentLoaded', function() {
             <b>Towards geodesic ridge curve for region-wise linear representation of geodesic distance field</b>
             <br />
             <i><a href="https://irc.cs.sdu.edu.cn/gmp2024/index.html#/" target="_blank" rel="noopener">Computer Aided Geometric Design (CAGD). Present at GMP 2024.</a></i>
-            
+            <!-- 
                 <b style="color: #e74d3c">[Best Paper Award]</b>
+             -->
             
+            <span class="status-tag 
+                
+                best-paper
+                ">
+                Best Paper Award
+            </span>
+        
             <br />
             
                 
@@ -1005,6 +1524,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <br />
             
+                <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+            
+            
+            
+            
+            
+            <!-- 
                 <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener">[PDF]</a>
             
             
@@ -1014,8 +1542,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <br />
-            
+            <br>
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -1033,62 +1561,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
@@ -1118,6 +1704,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <b>Efficiently Computing Voronoi Diagrams over Mesh Surfaces with Arbitrary Distance Solvers</b>
             <br />
             <i><a href="https://sa2022.siggraph.org/en/index.html" target="_blank" rel="noopener">ACM Transactions on Graphics (TOG). Present at SIGGRAPH Asia 2022.</a></i>
+            <!--  -->
             
             <br />
             
@@ -1163,6 +1750,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <br />
             
+                <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener" class="resource-btn">PDF</a>
+            
+            
+                <a href="https://github.com/sssomeone/SurfaceVoronoi" target="_blank" rel="noopener" class="resource-btn">Code</a>
+            
+            
+            
+            
+            
+            
+            <!-- 
                 <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
             
             
@@ -1174,8 +1772,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <br />
-            
+            <br>
+             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -1193,62 +1791,120 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-<style>
-    .abstract-container {
-        position: relative;
-        max-height: 4.8em;
-        overflow: hidden;
-        margin-top: 8px;
-        line-height: 1.6;
-        padding-left: 0;
-    }
-    
-    .abstract-label {
-        display: inline;
-        white-space: nowrap;
-    }
-    
-    .abstract-content {
-        display: inline;
-        margin-bottom: 20px;
-    }
-    
-    .see-more-btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 0 0 10px;
-        background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
-    }
+<style>.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify; /* 整个容器应用两端对齐 */
+}
 
-    /* 添加主题相关样式 */
-    :root {
-        --bg-color: white;
-    }
-    
-    .dark-theme .see-more-btn {
-        --bg-color: #333333;
-    }
-    
-    .abstract-container.expanded {
-        max-height: none;
-    }
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
-    
-    .project img {
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper, more visible shadow */
+.abstract-content {
+    display: inline; /* 保持与label在同一行 */
+}
+
+.abstract-preview, .collapse {
+    /* 确保预览和展开的内容都保持一致的对齐方式 */
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+}
+
+/* 主题相关样式 */
+:root {
+    --bg-color: white;
+}
+
+.dark-theme .see-more-btn {
+    --bg-color: #333333;
+}
+
+.abstract-container.expanded {
+    max-height: none;
+}
+
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 5px; /* Add a little space below image */
+    margin-bottom: 5px;
 }
-.abstract-content {
+
+/* 确保当容器展开时仍然保持两端对齐 */
+.abstract-container.expanded .abstract-content {
+    display: inline;
     text-align: justify;
-    display: inline-block;
-    width: 100%;
 }
 
+/* 确保"See Less"按钮在适当位置 */
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
 
+/* 更精致的资源按钮样式，匹配网站整体色调 */
+.resource-btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    border-radius: 4px;
+    border: 1px solid #B45F4D; /* 偏向您网站上作者名字的褐色 */
+    color: #B45F4D; 
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    line-height: 1.2;
+    font-family: inherit; /* 使用与网站相同的字体 */
+}
 
+.resource-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px; /* 右侧间距 */
+    margin-bottom: 3px; /* 底部间距，确保与下方内容有适当间隔 */
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
 
 </style>
     
