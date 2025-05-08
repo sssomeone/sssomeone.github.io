@@ -394,18 +394,17 @@
             
             
             
-            <!-- 
-                <a href="assets/papers/nearestNeighborSearch.pdf" target="_blank" rel="noopener">[PDF]</a>
             
+            <button onclick="copyBibtex(this)" class="resource-btn bibtex-btn" data-bibtex="@misc{wang2024efficientnearestneighborsearch,
+title={Efficient Nearest Neighbor Search Using Dynamic Programming},
+author={Pengfei Wang and Jiantao Song and Shiqing Xin and Shuangmin Chen and Changhe Tu and Wenping Wang and Jiaye Wang},
+year={2024},
+eprint={2409.15023},
+archivePrefix={arXiv},
+primaryClass={cs.CG},
+url={https://arxiv.org/abs/2409.15023},
+}">BibTeX</button>
             
-            
-            
-            
-            
-            
-            
-            <br>
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -538,6 +537,23 @@
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -554,6 +570,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
                 
  <div class="project" data-filter="voronoi">
@@ -620,18 +657,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <!-- 
-                <a href="assets/papers/spaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
             
+            <button onclick="copyBibtex(this)" class="resource-btn bibtex-btn" data-bibtex="@ARTICLE{10845125,
+author={Wang, Pengfei and Song, Jiantao and Wang, Lei and Xin, Shiqing and Yan, Dong-Ming and Chen, Shuangmin and Tu, Changhe and Wang, Wenping},
+journal={IEEE Transactions on Visualization and Computer Graphics},
+title={Towards Voronoi Diagrams of Surface Patches},
+year={2025},
+volume={},
+number={},
+pages={1-15},
+keywords={Generators;Surface treatment;Three-dimensional printing;Solid modeling;Computational modeling;Shape;Accuracy;Geometry;Surface reconstruction;Computer science;digital geometry processing;CAD models;medial axis (MA);Voronoi diagram;piecewise linear field},
+doi={10.1109/TVCG.2025.3531445}
+}">BibTeX</button>
             
-            
-            
-            
-            
-            
-            
-            <br>
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -764,6 +802,23 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -780,6 +835,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
                 
  <div class="project" data-filter="offset">
@@ -848,20 +924,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
                 <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener" class="resource-btn">Project Page</a>
             
-            <!-- 
-                <a href="https://media.githubusercontent.com/media/Alan-Leo-Wong/SIGASIA24-PCO-ProjectPage/refs/heads/main/src/assets/PCO___SigAsia_2024_.pdf?download=true" target="_blank" rel="noopener">[PDF]</a>
             
-            
-            
-            
-            
-            
-            
-                | <a href="https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/" target="_blank" rel="noopener">[PROJECT PAGE]</a>
-            
-            
-            <br>
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -994,6 +1057,23 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -1010,6 +1090,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
                 
  <div class="project" data-filter="girlfriend">
@@ -1074,14 +1175,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <!-- 
             
-            
-            
-            
-            
-            
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -1214,6 +1308,23 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -1230,6 +1341,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
                 
  <div class="project" data-filter="geodesic">
@@ -1300,18 +1432,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <!-- 
-                <a href="assets/papers/cutlocus.pdf" target="_blank" rel="noopener">[PDF]</a>
             
-            
-            
-            
-            
-            
-            
-            
-            <br>
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -1444,6 +1565,23 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -1460,6 +1598,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
                 
  <div class="project" data-filter="voronoi">
@@ -1528,20 +1687,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             
-            <!-- 
-                <a href="assets/papers/SurfaceVoronoi.pdf" target="_blank" rel="noopener">[PDF]</a>
             
-            
-                | <a href="https://github.com/sssomeone/SurfaceVoronoi" target="_blank" rel="noopener">[CODE]</a>
-            
-            
-            
-            
-            
-            
-            
-            <br>
-             -->
             <div class="abstract-container">
                 <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
                 <div class="abstract-content">
@@ -1674,6 +1820,23 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #3498db;
 }
 
+
+
+.resource-btn.bibtex-btn {
+    border-color: #4a6da7; /* A different color to distinguish it */
+    color: #4a6da7;
+}
+
+.resource-btn.bibtex-btn:hover {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.resource-btn.copied {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
 </style>
     
 <script>
@@ -1690,10 +1853,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
+<script>
+    function copyBibtex(button) {
+        const bibtex = button.getAttribute('data-bibtex');
+        navigator.clipboard.writeText(bibtex).then(() => {
+            // Visual feedback that copy was successful
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    </script>
             
         </div>
     </div>
 </div>
+
 <!-- Resources section -->
 
 <hr />
