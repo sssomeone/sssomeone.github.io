@@ -1,3 +1,21 @@
+// 安全的元素选择器函数
+function safeGetElement(selector) {
+    const element = document.querySelector(selector);
+    if (!element) {
+        console.warn(`Element not found: ${selector}`);
+    }
+    return element;
+}
+
+function safeGetById(id) {
+    const element = document.getElementById(id);
+    if (!element) {
+        console.warn(`Element with ID not found: ${id}`);
+    }
+    return element;
+}
+
+
 // Back-to-top button
 var btn = $('#back-to-top-button');
 
@@ -11,20 +29,27 @@ $(window).scroll(function() {
 
 btn.on('click', function(e) {
     e.preventDefault();
-    const speechBalloon = document.querySelector('.speech-balloon');
+    const speechBalloon = safeGetElement('.speech-balloon');
     // const clickSound = new Audio('assets/sounds/collision_sound.wav');
     $('html, body').animate({scrollTop:0}, '300');
-    speechBalloon.innerText = 'back to top!';
+    if (speechBalloon) {
+            speechBalloon.innerText = 'back to top!';
+        }
     // clickSound.play();
 });
 
 
 // Play pronunciation audio when the emoji is clicked
-document.getElementById('volumeEmoji').addEventListener('click', function() {
-    // const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
-    // pronunicationAudio.play();
-});
-
+// document.getElementById('volumeEmoji').addEventListener('click', function() {
+//     // const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
+//     // pronunicationAudio.play();
+// });
+const volumeEmoji = safeGetById('volumeEmoji');
+if (volumeEmoji) {
+    volumeEmoji.addEventListener('click', function() {
+        // 原有的代码内容
+    });
+}
 
 // Toggle navigation menu bar
 function toggleNav() {
@@ -66,7 +91,8 @@ function scrollToTopDiv(divTag) {
 function toggleTheme() {
     const bodyEl = document.body;
     const buttonEl = document.querySelector('.toggle-theme-button');
-    const speechBalloon = document.querySelector('.speech-balloon');
+    // const speechBalloon = document.querySelector('.speech-balloon');
+    const speechBalloon = safeGetElement('.speech-balloon');
     // const clickSound = new Audio('assets/sounds/switch_sound.wav');
 
     if (bodyEl.classList.contains('light-theme')) {
@@ -75,7 +101,10 @@ function toggleTheme() {
         buttonEl.classList.remove('light-theme');
         buttonEl.classList.add('dark-theme');
         buttonEl.innerText = '☀️';
-        speechBalloon.innerText = 'lights turned off!';
+        // speechBalloon.innerText = 'lights turned off!';
+        if (speechBalloon) {
+            speechBalloon.innerText = 'lights turned off!';
+        }
         // clickSound.play();
     } else {
         bodyEl.classList.remove('dark-theme');
@@ -83,7 +112,10 @@ function toggleTheme() {
         buttonEl.classList.remove('dark-theme');
         buttonEl.classList.add('light-theme');
         buttonEl.innerText = '🌙';
-        speechBalloon.innerText = 'lights turned on!';
+        // speechBalloon.innerText = 'lights turned on!';
+        if (speechBalloon) {
+            speechBalloon.innerText = 'lights turned on!';
+        }
         // clickSound.play();
     }
 }
@@ -91,11 +123,14 @@ function toggleTheme() {
 
 // Handle scroll event to hide/show back-to-top and toggle theme button
 window.addEventListener('scroll', function() {
-    const buttonEl = document.querySelector('.toggle-theme-button');
-    if (window.scrollY > 0) {
-        buttonEl.style.display = 'none';
-    } else {
-        buttonEl.style.display = 'block';
+    // const buttonEl = document.querySelector('.toggle-theme-button');
+    const buttonEl = safeGetElement('.toggle-theme-button');
+    if (buttonEl) {
+            if (window.scrollY > 0) {
+            buttonEl.style.display = 'none';
+        } else {
+            buttonEl.style.display = 'block';
+        }
     }
 });
 
@@ -141,7 +176,12 @@ popupIconContainer.addEventListener(startEvent, (e) => {
     dismissalArea.style.display = 'flex';
     
     // Hide the speech balloon as users start dragging and drag the icon
-    document.querySelector('.speech-balloon').classList.add('hidden');
+    // document.querySelector('.speech-balloon').classList.add('hidden');
+    // Hide the speech balloon as users start dragging and drag the icon
+const speechBalloon = safeGetElement('.speech-balloon');
+if (speechBalloon) {
+    speechBalloon.classList.add('hidden');
+}
 });
 
 
@@ -185,16 +225,27 @@ document.addEventListener(endEvent, (e) => {
 });
 
 
+// // Hide speech balloon when scrolling down
+// window.addEventListener('scroll', function() {
+//     let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+//     if (scrollPosition > 300) {
+//         document.querySelector('.speech-balloon').classList.add('hidden');
+//     } else {
+//         document.querySelector('.speech-balloon').classList.remove('hidden');
+//     }
+// });
 // Hide speech balloon when scrolling down
 window.addEventListener('scroll', function() {
     let scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    if (scrollPosition > 300) {
-        document.querySelector('.speech-balloon').classList.add('hidden');
-    } else {
-        document.querySelector('.speech-balloon').classList.remove('hidden');
+    const speechBalloon = safeGetElement('.speech-balloon');
+    if (speechBalloon) {
+        if (scrollPosition > 300) {
+            speechBalloon.classList.add('hidden');
+        } else {
+            speechBalloon.classList.remove('hidden');
+        }
     }
 });
-
 
 // Update progress bar as user scrolls down
 window.onscroll = function() {progressBar()};
@@ -597,29 +648,58 @@ $(document).ready(function() {
 });
 
 
+// // Dark/Light theme based on predefined time
+// document.addEventListener('DOMContentLoaded', function() {
+//     const buttonEl = document.querySelector('.toggle-theme-button');
+//     const speechBalloon = document.querySelector('.speech-balloon');
+//     var currentHour = new Date().getHours();
+
+//     // Dark theme is used between 7 PM of last day
+//     // to 7 AM next day. Otherwise, use light theme
+//     if (currentHour > 19 || currentHour <= 7) {
+//         document.body.classList.add('dark-theme');
+//         buttonEl.innerText = '☀️';
+//         speechBalloon.innerText = 'it\'s night, lights off!';
+//     } else {
+//         document.body.classList.add('light-theme');
+//         buttonEl.innerText = '🌙';
+//         speechBalloon.innerText = 'it\'s day, lights on!';
+//     }
+// });
 // Dark/Light theme based on predefined time
 document.addEventListener('DOMContentLoaded', function() {
-    const buttonEl = document.querySelector('.toggle-theme-button');
-    const speechBalloon = document.querySelector('.speech-balloon');
+    const buttonEl = safeGetElement('.toggle-theme-button');
+    const speechBalloon = safeGetElement('.speech-balloon');
     var currentHour = new Date().getHours();
 
     // Dark theme is used between 7 PM of last day
     // to 7 AM next day. Otherwise, use light theme
     if (currentHour > 19 || currentHour <= 7) {
         document.body.classList.add('dark-theme');
-        buttonEl.innerText = '☀️';
-        speechBalloon.innerText = 'it\'s night, lights off!';
+        if (buttonEl) {
+            buttonEl.innerText = '☀️';
+        }
+        if (speechBalloon) {
+            speechBalloon.innerText = 'it\'s night, lights off!';
+        }
     } else {
         document.body.classList.add('light-theme');
-        buttonEl.innerText = '🌙';
-        speechBalloon.innerText = 'it\'s day, lights on!';
+        if (buttonEl) {
+            buttonEl.innerText = '🌙';
+        }
+        if (speechBalloon) {
+            speechBalloon.innerText = 'it\'s day, lights on!';
+        }
     }
 });
 
 
 // Automatically update year in footer
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-
+// document.getElementById("currentYear").textContent = new Date().getFullYear();
+const currentYearElement = safeGetById("currentYear");
+if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+}
 
 // Canvas for particle moves
 const canvas = document.getElementById('canvas');
