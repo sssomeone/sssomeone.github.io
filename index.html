@@ -325,7 +325,7 @@
         </small>
         <div id="projects" class="isotope">
             
-                <div class="project" data-filter="nearest_neighbor_search">
+                <div class="project" data-filter="nearest_neighbor_search" data-highlight="true">
     <div class="row mb-4">
         <div class="col-sm-4">
             <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/nns2.png" />
@@ -426,8 +426,79 @@ url={https://arxiv.org/abs/2409.15023},
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -457,26 +528,13 @@ url={https://arxiv.org/abs/2409.15023},
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -491,7 +549,20 @@ url={https://arxiv.org/abs/2409.15023},
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -672,6 +743,34 @@ url={https://arxiv.org/abs/2409.15023},
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -685,6 +784,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
@@ -709,7 +833,7 @@ function copyBibtex(button) {
 }
 </script>
             
-                <div class="project" data-filter="voronoi">
+                <div class="project" data-filter="voronoi" data-highlight="true">
     <div class="row mb-4">
         <div class="col-sm-4">
             <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/spacevoronoi.png" />
@@ -810,8 +934,79 @@ doi={10.1109/TVCG.2025.3531445}
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -841,26 +1036,13 @@ doi={10.1109/TVCG.2025.3531445}
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -875,7 +1057,20 @@ doi={10.1109/TVCG.2025.3531445}
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -1056,6 +1251,34 @@ doi={10.1109/TVCG.2025.3531445}
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -1069,6 +1292,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
@@ -1184,8 +1432,79 @@ function copyBibtex(button) {
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -1215,26 +1534,13 @@ function copyBibtex(button) {
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -1249,7 +1555,20 @@ function copyBibtex(button) {
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -1430,6 +1749,34 @@ function copyBibtex(button) {
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -1443,6 +1790,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
@@ -1548,8 +1920,79 @@ function copyBibtex(button) {
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -1579,26 +2022,13 @@ function copyBibtex(button) {
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -1613,7 +2043,20 @@ function copyBibtex(button) {
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -1794,6 +2237,34 @@ function copyBibtex(button) {
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -1807,6 +2278,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
@@ -1919,8 +2415,79 @@ function copyBibtex(button) {
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -1950,26 +2517,13 @@ function copyBibtex(button) {
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -1984,7 +2538,20 @@ function copyBibtex(button) {
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -2165,6 +2732,34 @@ function copyBibtex(button) {
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -2178,6 +2773,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
@@ -2293,8 +2913,79 @@ function copyBibtex(button) {
     </div>
 </div>
 
-
 <style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
 .abstract-container {
     position: relative;
     max-height: 4.8em;
@@ -2324,26 +3015,13 @@ function copyBibtex(button) {
     bottom: 0;
     right: 0;
     padding: 0 0 0 10px;
-    background: linear-gradient(to left, var(--bg-color, white) 70%, transparent);
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
 }
 
-:root {
-    --bg-color: white;
-}
-
-.dark-theme .see-more-btn {
-    --bg-color: #333333;
-}
-
+/* 展开状态样式 - 移除动画 */
 .abstract-container.expanded {
     max-height: none;
-}
-
-.project img {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    margin-bottom: 5px;
+    overflow: visible;
 }
 
 .abstract-container.expanded .abstract-content {
@@ -2358,7 +3036,20 @@ function copyBibtex(button) {
     margin-left: 5px;
 }
 
-/* 改进的资源按钮样式 */
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
 .resource-btn {
     display: inline-flex;
     align-items: center;
@@ -2539,6 +3230,34 @@ function copyBibtex(button) {
 .status-tag.nomination {
     background-color: #3498db;
 }
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
 </style>
     
 <script>
@@ -2552,6 +3271,31 @@ document.addEventListener('DOMContentLoaded', function() {
             element.innerText = '... See More';
             container.classList.remove('expanded');
         }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
     }
 });
 </script>
