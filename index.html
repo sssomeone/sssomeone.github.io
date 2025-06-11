@@ -325,6 +325,501 @@
         </small>
         <div id="projects" class="isotope">
             
+                <div class="project" data-filter="meshing" data-highlight="true">
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <img width="100%" height="auto" class="w-full rounded-lg" src="assets/img/surfaceextract.png" />
+        </div>
+        <div class="col-sm-8">
+            
+            <b>Power Diagram Enhanced Adaptive Isosurface Extraction from Signed Distance Fields</b>
+            <br />
+            <i><a href="" target="_blank" rel="noopener"></a></i>
+            
+            <span class="status-tag 
+                preprint
+                
+                ">
+                Preprint
+            </span>
+            
+            <br />
+            
+                
+                <a href="">
+                    <strong>Pengfei Wang</strong>
+                </a>, 
+            
+                
+                <a href="">
+                    Ziyang Zhang
+                </a>, 
+            
+                
+                <a href="">
+                    Wensong Wang
+                </a>, 
+            
+                
+                <a href="https://ieeexplore.ieee.org/author/37088955375">
+                    Shuangmin Chen
+                </a>, 
+            
+                
+                <a href="">
+                    Lin Lu
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~shiqing/index.html">
+                    Shiqing Xin<sup>*</sup>
+                </a>, 
+            
+                
+                <a href="https://irc.cs.sdu.edu.cn/~chtu/index.html">
+                    Changhe Tu
+                </a>
+            
+            <br />
+            
+                <a href="assets/papers/surfaceExtract.pdf" target="_blank" rel="noopener" class="resource-btn pdf-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    Main Paper
+                </a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="abstract-container">
+                <span class="abstract-label"><u><b><i>Abstract</i></b></u>: </span>
+                <div class="abstract-content">
+                    <span class="abstract-preview">Extracting high-fidelity mesh surfaces from Signed Distance Fields has become a fundamental operation in geometry processing. Despite significant progress over the past decades, key challenges remain-namely, how to automatically capture the intricate geometric and topological structures encoded in the zero level set of SDFs. In this paper, we present a novel isosurface extraction algorithm that introduces two key innovations, 1.An incrementally constructed power diagram through the addition of sample points, which enables repeated updates to the extracted surface via its dual-regular Delaunay tetrahedralization; and 2.An adaptive point insertion strategy that identifies regions exhibiting the greatest discrepancy between the current mesh and the underlying continuous surface. As the teaser figure shows, our framework progressively refines the extracted mesh with minimal computational cost until it sufficiently approximates the underlying surface. Experimental results demonstrate that our approach outperforms state-of-the-art methods, particularly for models with intricate geometric variations and complex topologies.</span>
+                    <span class="collapse" id="surface_extraction">
+                        
+                    </span>
+                </div>
+                <span class="see-more-btn">
+                    <a href="#surface_extraction" data-toggle="collapse" onclick="toggleText(this)" id="link-surface_extraction">... See More</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* CSS变量定义 */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --project-bg: #f4f4f4;
+    --project-border: #e9ecef;
+    --project-shadow: rgba(0, 0, 0, 0.08);
+    --project-hover-shadow: rgba(0, 0, 0, 0.15);
+    --highlight-bg: #e5ebe4;
+    --highlight-border: #d1d9cf;
+    --highlight-shadow: rgba(197, 211, 196, 0.3);
+}
+
+/* 暗黑模式变量 */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --project-bg: #2d2d2d;
+    --project-border: #404040;
+    --project-shadow: rgba(0, 0, 0, 0.3);
+    --project-hover-shadow: rgba(0, 0, 0, 0.5);
+    --highlight-bg: #3d3520;
+    --highlight-border: #5d4e2a;
+    --highlight-shadow: rgba(255, 193, 7, 0.15);
+}
+
+/* 项目容器样式 */
+.project {
+    background-color: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--project-shadow);
+    position: relative;
+    overflow: hidden;
+    /* 移除transform的transition，只保留box-shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+/* 项目悬浮效果 */
+.project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--project-hover-shadow);
+    /* 只在hover时添加transform的transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 高亮项目样式 */
+.project[data-highlight="true"] {
+    background-color: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    box-shadow: 0 2px 8px var(--highlight-shadow);
+}
+
+.project[data-highlight="true"]:hover {
+    box-shadow: 0 8px 25px var(--highlight-shadow);
+}
+
+/* 高亮项目左侧装饰条 */
+.project[data-highlight="true"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd700, #ffb347);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Abstract容器样式优化 */
+.abstract-container {
+    position: relative;
+    max-height: 4.8em;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 1.6;
+    padding-left: 0;
+    text-align: justify;
+}
+
+.abstract-label {
+    display: inline;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.abstract-content {
+    display: inline;
+}
+
+.abstract-preview, .collapse {
+    text-align: justify;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0 0 10px;
+    background: linear-gradient(to left, var(--project-bg) 70%, transparent);
+}
+
+/* 展开状态样式 - 移除动画 */
+.abstract-container.expanded {
+    max-height: none;
+    overflow: visible;
+}
+
+.abstract-container.expanded .abstract-content {
+    display: inline;
+    text-align: justify;
+}
+
+.abstract-container.expanded .see-more-btn {
+    position: static;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+}
+
+/* 高亮项目的see-more-btn背景调整 */
+.project[data-highlight="true"] .see-more-btn {
+    background: linear-gradient(to left, var(--highlight-bg) 70%, transparent);
+}
+
+/* 图片样式 */
+.project img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 5px;
+}
+
+/* 资源按钮样式 */
+.resource-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    margin: 2px 3px 2px 0;
+    border-radius: 4px;
+    border: 1px solid;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: normal;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: 1.3;
+}
+
+.resource-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.resource-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮图标样式 */
+.btn-icon {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+}
+
+/* 不同按钮的配色方案 */
+.pdf-btn {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.pdf-btn:hover {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.code-btn {
+    border-color: #27ae60;
+    color: #27ae60;
+}
+
+.code-btn:hover {
+    background-color: #27ae60;
+    color: white;
+    border-color: #27ae60;
+}
+
+.demo-btn {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.demo-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+.slides-btn {
+    border-color: #f39c12;
+    color: #f39c12;
+}
+
+.slides-btn:hover {
+    background-color: #f39c12;
+    color: white;
+    border-color: #f39c12;
+}
+
+.talk-btn {
+    border-color: #e91e63;
+    color: #e91e63;
+}
+
+.talk-btn:hover {
+    background-color: #e91e63;
+    color: white;
+    border-color: #e91e63;
+}
+
+.poster-btn {
+    border-color: #9b59b6;
+    color: #9b59b6;
+}
+
+.poster-btn:hover {
+    background-color: #9b59b6;
+    color: white;
+    border-color: #9b59b6;
+}
+
+.page-btn {
+    border-color: #00acc1;
+    color: #00acc1;
+}
+
+.page-btn:hover {
+    background-color: #00acc1;
+    color: white;
+    border-color: #00acc1;
+}
+
+.bibtex-btn {
+    border-color: #B45F4D;
+    color: #B45F4D;
+}
+
+.bibtex-btn:hover {
+    background-color: #B45F4D;
+    color: white;
+    border-color: #B45F4D;
+}
+
+.github-btn {
+    border-color: #607d8b;
+    color: #607d8b;
+}
+
+.github-btn:hover {
+    background-color: #607d8b;
+    color: white;
+    border-color: #607d8b;
+}
+
+.supp-btn {
+    border-color: #795548;
+    color: #795548;
+}
+
+.supp-btn:hover {
+    background-color: #795548;
+    color: white;
+    border-color: #795548;
+}
+
+/* 复制成功状态 */
+.resource-btn.copied {
+    background-color: #27ae60 !important;
+    color: white !important;
+    border-color: #27ae60 !important;
+}
+
+/* 状态标签基础样式 */
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: normal;
+    font-size: 0.7em;
+    margin-right: 10px;
+    margin-bottom: 3px;
+}
+
+/* 预印本样式 - 红色 */
+.status-tag.preprint {
+    background-color: #e74c3c;
+}
+
+/* 最佳论文奖样式 - 金色 */
+.status-tag.best-paper {
+    background-color: #f39c12;
+}
+
+/* 最佳论文提名样式 - 蓝色 */
+.status-tag.nomination {
+    background-color: #3498db;
+}
+
+/* 确保最后一个项目也能正常显示 */
+.project:last-child {
+    margin-bottom: 24px;
+}
+
+/* 筛选相关样式 - 防止筛选时的跳跃 */
+.project.hidden {
+    display: none !important;
+}
+
+.project.filtering {
+    transition: none !important;
+    transform: none !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .project:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+}
+</style>
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.toggleText = function(element) {
+        const container = element.closest('.abstract-container');
+        if (element.innerText === '... See More') {
+            element.innerText = 'See Less';
+            container.classList.add('expanded');
+        } else {
+            element.innerText = '... See More';
+            container.classList.remove('expanded');
+        }
+    }
+    
+    // 添加筛选处理函数，防止跳跃
+    window.filterProjects = function(category) {
+        const projects = document.querySelectorAll('.project');
+        
+        // 先添加filtering类，禁用transition
+        projects.forEach(project => {
+            project.classList.add('filtering');
+        });
+        
+        // 短暂延迟后执行筛选和移除filtering类
+        setTimeout(() => {
+            projects.forEach(project => {
+                if (category === 'ALL' || project.dataset.filter === category) {
+                    project.style.display = 'block';
+                    project.classList.remove('hidden');
+                } else {
+                    project.style.display = 'none';
+                    project.classList.add('hidden');
+                }
+                // 移除filtering类，恢复transition
+                project.classList.remove('filtering');
+            });
+        }, 10);
+    }
+});
+</script>
+
+<script>
+function copyBibtex(button) {
+    const bibtex = button.getAttribute('data-bibtex');
+    navigator.clipboard.writeText(bibtex).then(() => {
+        // Visual feedback that copy was successful
+        const originalText = button.innerHTML;
+        button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        button.classList.add('copied');
+        
+        // Reset button text after 2 seconds
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+</script>
+            
                 <div class="project" data-filter="nearest_neighbor_search" data-highlight="true">
     <div class="row mb-4">
         <div class="col-sm-4">
